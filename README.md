@@ -1,1 +1,1 @@
-# udemy-tutorial-qt-graphics
+# Udemy Qt Curves tutorial
