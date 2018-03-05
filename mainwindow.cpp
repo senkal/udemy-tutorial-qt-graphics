@@ -12,3 +12,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_btnAsteroid_clicked()
+{
+   this->ui->renderArea->setBackgroundColor(Qt::red);
+   this->ui->renderArea->repaint();
+}
