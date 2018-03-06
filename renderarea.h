@@ -12,9 +12,11 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    enum Shapes {Asteroid, Cycloid, HyugensCycloid, HypoCycloid};
+    enum ShapeType {Asteroid, Cycloid, HyugensCycloid, HypoCycloid};
     void setBackgroundColor (QColor color) { mBackgroundColor = color; }
     QColor getBackgrundColor () const { return mBackgroundColor; }
+    void setShape(ShapeType shape) { mShape = shape; }
+    ShapeType shape() const { return mShape; }
 
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
@@ -22,6 +24,7 @@ protected:
 private:
     QColor mBackgroundColor;
     QColor mShapeColor;
+    ShapeType mShape;
 
 signals:
 

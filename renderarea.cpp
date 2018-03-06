@@ -5,7 +5,8 @@
 RenderArea::RenderArea(QWidget *parent) :
     QWidget(parent),
     mBackgroundColor (0, 0, 255),
-    mShapeColor (255, 255, 255)
+    mShapeColor (255, 255, 255),
+    mShape (Asteroid)
 {
 }
 
@@ -21,11 +22,32 @@ QSize RenderArea::sizeHint() const
 
 void RenderArea::paintEvent(QPaintEvent *event)
 {
-    QPainter painter(this);
-    painter.setBrush(mBackgroundColor);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.setPen(mShapeColor);
+    Q_UNUSED(event)
 
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    switch (mShape) {
+    case Asteroid:
+        mBackgroundColor = Qt::red;
+
+        break;
+    case Cycloid:
+        mBackgroundColor = Qt::green;
+
+        break;
+    case HyugensCycloid:
+        mBackgroundColor = Qt::blue;
+
+        break;
+    case HypoCycloid:
+        mBackgroundColor = Qt::yellow;
+
+        break;
+    }
+
+    painter.setPen(mShapeColor);
+    painter.setBrush(mBackgroundColor);
     painter.drawRect(this->rect());
     painter.drawLine(this->rect().topLeft(), this->rect().bottomRight());
 }
