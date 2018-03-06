@@ -30,7 +30,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnCycoid">
+         <widget class="QPushButton" name="btnCycloid">
           <property name="text">
            <string>Cycloid</string>
           </property>
